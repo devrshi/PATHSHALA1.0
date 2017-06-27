@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+    <!-- ========================================================= -->
+    <!-- ======================== Defaults ======================= -->
+    <!-- ========================================================= -->
+    <title>Entity of imsCenter Component</title>
+    <description>None</description>
+    <copyright></copyright>
+    <version></version>
+    
+    <entity  entity-name="StudentDetails"   package-name="org.ofbiz.imsCenter" >
+        <field name="studentDetailId" type="id-ne"/>
+        <field name="studentId"  type="id-ne" />
+        <field name="qualifyingExam"  type="long-varchar" />
+        <field name="lastAttended"  type="long-varchar" />
+        <field name="enrollmentNo"  type="short-varchar" />
+        <field name="receiptNo"  type="short-varchar" />
+        <prim-key field="studentDetailId"/>
+        <relation rel-entity-name="Party" type="one">
+            <key-map field-name="studentId" rel-field-name="partyId"/>
+        </relation>        
+    </entity>
+    
+    <entity  entity-name="StudentCourse"   package-name="org.ofbiz.imsCenter" >
+        <field name="studentCourseId"  type="id-ne" />
+        <field name="studentId"  type="id-ne" />
+        <field name="courseId" type="id-ne" />
+        <prim-key field="studentCourseId"/>
+        
+        <relation rel-entity-name="Party" type="one">
+            <key-map field-name="studentId" rel-field-name="partyId"/>
+        </relation>
+        
+        <relation rel-entity-name="CourseMaster" type="one">
+            <key-map field-name="courseId" rel-field-name="courseMasterId"/>
+        </relation>
+    </entity>
+
+
+	<entity  entity-name="CourseMaster"   package-name="org.ofbiz.imsCenter" >
+	        <field name="courseMasterId"  type="id-ne" />
+	        <field name="courseName" type="short-varchar" />
+	        <field name="courseDescription"  type="short-varchar" />
+	        <field name="courseLevel"  type="short-varchar" />
+	        <field name="courseDuration"  type="numeric" />
+	        <field name="courseYear"  type="short-varchar" />
+	        <field name="noOfSeat"  type="numeric" />
+	        <field name="noOfSemester"  type="numeric" />
+	        <prim-key field="courseMasterId" />
+	</entity>	
+	
+	<entity  entity-name="SubjectMaster"   package-name="org.ofbiz.imsCenter" >
+	        <field name="subjectId"  type="id-ne" />
+	        <field name="subjectName" type="short-varchar" />
+	        <field name="maxMarks"  type="numeric" />
+	        <field name="subjectNature"  type="short-varchar" />
+	        <field name="subjectType"  type="short-varchar" />
+	        <field name="status"  type="short-varchar" />
+	        <field name="remarks"  type="description" />
+	        <prim-key field="subjectId" />
+	</entity>
+	
+	<view-entity entity-name="StudentView" package-name="View all details of Student">
+	   <member-entity entity-alias="PT" entity-name="Party"/>
+	   <member-entity entity-alias="PR" entity-name="PartyRole" />
+	   <member-entity entity-alias="PER" entity-name="Person" />
+	   <member-entity entity-alias="ST" entity-name="StudentDetails"/>
+	   <member-entity entity-alias="SC" entity-name="StudentCourse"/>
+	   <member-entity entity-alias="CM" entity-name="CourseMaster"/>
+	  
+	   <alias-all entity-alias="PER"  >
+	    <exclude field="partyId"/>
+	   </alias-all>
+	   <alias-all entity-alias="ST"/>
+	   <alias-all entity-alias="SC"/>
+	   <alias name="partyId"  entity-alias="PR"/>
+	   <alias name="roleTypeId" entity-alias="PR"/>
+	   <alias name="courseName" entity-alias="CM"/>
+	   
+	   <view-link rel-entity-alias="PR" entity-alias="PT">
+	     <key-map field-name="partyId"/>
+	   </view-link>
+	   <view-link rel-entity-alias="PER" entity-alias="PT">
+	      <key-map field-name="partyId" />
+	   </view-link>
+	      <view-link rel-entity-alias="ST" entity-alias="PT">
+	   <key-map rel-field-name="studentId" field-name="partyId" />
+	   </view-link>
+	    <view-link rel-entity-alias="SC" entity-alias="PT">
+	   <key-map rel-field-name="studentId" field-name="partyId" />
+	   </view-link>
+	   <view-link entity-alias="SC" rel-entity-alias="CM">
+	   <key-map  field-name="courseId" rel-field-name="courseMasterId"  />
+	   </view-link>
+	</view-entity>
+
+</entitymodel>

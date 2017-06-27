@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+    <SecurityGroupPermission groupId="FULLADMIN" permissionId="IMSCENTER_ADMIN"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="IMSCENTER_CREATE"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="IMSCENTER_DELETE"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="IMSCENTER_UPDATE"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="IMSCENTER_VIEW"/>
+    <SecurityGroupPermission groupId="VIEWADMIN" permissionId="IMSCENTER_VIEW"/>
+    <SecurityGroupPermission groupId="BIZADMIN" permissionId="IMSCENTER_ADMIN"/>
+    
+     <SecurityGroup groupId="IMSCENTER_ADMIN" description="This security group is for those who have full access to the IMS Center."/>
+    
+    <SecurityGroupPermission groupId="IMSCENTER_ADMIN" permissionId="IMSCENTER_ADMIN"/>
+    
+</entity-engine-xml>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+ <PartyType description="Student" hasTable="N" parentTypeId="" partyTypeId="STUDENT"/>
+<RoleType description="Student" hasTable="N" parentTypeId="" roleTypeId="STUDENT"/>
+<PartyRelationshipType description="" hasTable="N" parentTypeId="" partyRelationshipName="Student" partyRelationshipTypeId="STUDENT" roleTypeIdValidFrom="" roleTypeIdValidTo=""/>
+<PartyRelationshipType description="" hasTable="N" parentTypeId="" partyRelationshipName="Institution" partyRelationshipTypeId="INSTITUTION" roleTypeIdValidFrom="" roleTypeIdValidTo=""/>
+
+</entity-engine-xml>

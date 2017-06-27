@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <property key="imsCenterApplication">
+        <value xml:lang="en">IMS Center Application</value>
+        <value xml:lang="zh">imsCenter应用程序</value>
+    </property>
+    <property key="imsCenterCompanyName">
+        <value xml:lang="en">OFBiz: imsCenter</value>
+    </property>
+    <property key="imsCenterCompanySubtitle">
+        <value xml:lang="en">Part of the Open For Business Family of Open Source Software</value>
+        <value xml:lang="it">Un modulo della famiglia di software open source Open For Business</value>
+        <value xml:lang="zh">开源软件OFBiz的组成部分</value>
+    </property>
+    <property key="imsCenterViewPermissionError">
+        <value xml:lang="en">You are not allowed to view this page.</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+    </property>
+    
+      <property key="newCouseMaster">
+        <value xml:lang="en">Create New</value>
+    </property>
+    
+    <property key="courseName">
+        <value xml:lang="en">Course Name</value>
+    </property>
+    
+    <property key="courseDetails">
+        <value xml:lang="en">Course Details</value>
+    </property>
+    
+    <property key="courseLevel">
+        <value xml:lang="en">Course Level</value>
+    </property>
+    
+    <property key="subjectName">
+        <value xml:lang="en">Subject Name</value>
+    </property>
+    
+    <property key="subjectDetails">
+        <value xml:lang="en">Subject Details</value>
+    </property>
+    
+    <property key="subjectNature">
+        <value xml:lang="en">Subject Nature</value>
+    </property>
+    
+    <property key="subjectType">
+        <value xml:lang="en">Subject Type</value>
+    </property>
+    
+     <property key="newFeeMaster">
+        <value xml:lang="en">New Fee</value>
+    </property>
+    
+      <property key="courseMaster">
+        <value xml:lang="en">Course Master</value>
+    </property>
+    
+      <property key="saurabhMaster">
+        <value xml:lang="en">Saurabh Master</value>
+    </property>
+    
+</resource>

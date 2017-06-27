@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menus xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-menu.xsd">
+    <menu name="MainAppBar" title="${uiLabelMap.imsCenterApplication}" extends="CommonAppBarMenu" extends-resource="component://common/widget/CommonMenus.xml">
+        <menu-item name="main" title="${uiLabelMap.CommonMain}"><link target="main"/></menu-item>
+        <menu-item name="Admission" title="Admission" ><link target="admission"></link></menu-item>
+        <menu-item name="Enquiry" title="Enquiry" ><link target="enquiry"></link></menu-item>
+        <menu-item name="Account" title="Account" ><link target="account"></link></menu-item>
+        <menu-item name="TimeTable" title="TimeTable" ><link target="timeTable"></link></menu-item>
+        <menu-item name="Attendance" title="Attendance" ><link target="attendance"></link></menu-item>
+        <menu-item name="Certificate" title="Certificate" ><link target="certificate"></link></menu-item>
+        <menu-item name="courseMaster" title="Course Master"><link target="courseMaster"/></menu-item>
+        <menu-item name="subjectMaster" title="Subject Master"><link target="findSubjectMaster"/></menu-item>
+         <menu-item name="feeMaster" title="Fee Configuration"><link target="feeMaster"/></menu-item>
+    </menu>
+</menus>
+
+

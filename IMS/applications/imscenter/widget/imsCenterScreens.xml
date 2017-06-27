@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+
+    <screen name="main">
+        <section>
+            <actions>
+                <set field="headerItem" value="main"/><!-- this highlights the selected menu-item with name "main" -->
+            </actions>
+            <widgets>
+                <decorator-screen name="imsCenterCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                     <platform-specific>
+                         <html > <html-template location="component://imscenter/webapp/imscenter/dashboard/homePage.ftl"/></html>
+                     </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="admission">
+        <section>
+            <actions>
+                <set field="headerItem" value="admission"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="imsCenterCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                    <container style="button-bar">
+                    <link  text="Create New" target="registerStudent" name="Register"  style="buttontext create"></link>
+                    </container>
+                    <screenlet title="Search Student" >
+                        <container>
+                        <include-form name="FindStudent" location="component://imscenter/widget/imsCenterForms.xml"/>
+                        </container>
+                    </screenlet>
+                    <screenlet title="List of Students">
+                        <container>
+                        <include-form name="listStudents" location="component://imscenter/widget/imsCenterForms.xml"/>
+                        </container>
+                    </screenlet>
+                     
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="registerStudent">
+        <section>
+            <actions>
+                <set field="headerItem" value="admission"/>
+                <set field="partyId" from-field="userLogin.partyId"/>
+                <entity-one value-field="org" entity-name="PartyGroup">
+                  <field-map field-name="partyId"/>
+                </entity-one>
+                <entity-condition list="courseList" entity-name="CourseMaster"/>
+                
+            </actions>
+            <widgets>
+                <decorator-screen name="imsCenterCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                     <platform-specific>
+                         <html > <html-template location="component://imscenter/webapp/imscenter/admission/register_Student.ftl"/></html>
+                     </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    
+    <screen name="courseMaster">
+        <section>
+            <actions>
+                <set field="titleProperty" value="findCourse"/>
+                <set field="headerItem" value="Course Master"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="imsCenterCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <section>
+                            <actions>
+                                <set field="tabButtonItem" value="courseMaster"/>
+                            </actions>
+                            <widgets>
+                                <container style="button-bar">
+                                    <link target="newCourseMaster" text="${uiLabelMap.newCouseMaster}" style="buttontext create"/>
+                                </container>
+                                <section>
+                                    <widgets>
+                                        <platform-specific>
+                                            <html><html-template location="component://imscenter/webapp/imscenter/courseDetails/findCourseMaster.ftl"/></html>
+                                        </platform-specific>
+                                    </widgets>
+                                </section>
+                            </widgets>
+                            <fail-widgets>
+                                <label style="h3">${uiLabelMap.imsCenterViewPermissionError}</label>
+                            </fail-widgets>
+                        </section>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    
+     <screen name="newCourseMaster">
+        <section>
+            <actions>
+                <set field="titleProperty" value="newCourseMaster"/>
+                <set field="headerItem" value="courseMaster"/>
+                <property-to-field field="defaultCountryGeoId" resource="general" property="country.geo.id.default" default="IND"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="imsCenterCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <screenlet title="New Course Master">
+                            <section>
+                                <widgets>
+                                   <platform-specific>
+                                            <html><html-template location="component://imscenter/webapp/imscenter/courseDetails/AddCourseMaster.ftl"/></html>
+                                        </platform-specific>
+                                </widgets>
+                            </section>
+                        </screenlet>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+      <screen name="findSubjectMaster">
+        <section>
+            <actions>
+                <set field="titleProperty" value="findCourse"/>
+                <set field="headerItem" value="Course Master"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="imsCenterCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <section>
+                            <actions>
+                                <set field="tabButtonItem" value="Employee"/>
+                            </actions>
+                            <widgets>
+                                <container style="button-bar">
+                                    <link target="newSubjectMaster" text="${uiLabelMap.newSubjectMaster}" style="buttontext create"/>
+                                </container>
+                                <section>
+                                    <widgets>
+                                        <platform-specific>
+                                            <html><html-template location="component://imscenter/webapp/imscenter/subjectDetails/findSubjectMaster.ftl"/></html>
+                                        </platform-specific>
+                                    </widgets>
+                                </section>
+                            </widgets>
+                            <fail-widgets>
+                                <label style="h3">${uiLabelMap.PartyMgrViewPermissionError}</label>
+                            </fail-widgets>
+                        </section>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+     <screen name="newSubjectMaster">
+        <section>
+            <actions>
+                <set field="titleProperty" value="newCourseMaster"/>
+                <set field="headerItem" value="courseMaster"/>
+                <property-to-field field="defaultCountryGeoId" resource="general" property="country.geo.id.default" default="IND"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="imsCenterCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <screenlet title="New Subject Master">
+                            <section>
+                                <widgets>
+                                   <platform-specific>
+                                            <html><html-template location="component://imscenter/webapp/imscenter/subjectDetails/AddSubjectMaster.ftl"/></html>
+                                        </platform-specific>
+                                </widgets>
+                            </section>
+                        </screenlet>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    
+     <screen name="feeMaster">
+        <section>
+            <actions>
+                <set field="titleProperty" value="findCourse"/>
+                <set field="headerItem" value="Course Master"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="imsCenterCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <section>
+                            <actions>
+                                <set field="tabButtonItem" value="Employee"/>
+                            </actions>
+                            <widgets>
+                                <container style="button-bar">
+                                    <link target="newFeeMaster" text="${uiLabelMap.newFeeMaster}" style="buttontext create"/>
+                                </container>
+                                <section>
+                                    <widgets>
+                                        <platform-specific>
+                                            <html><html-template location="component://imscenter/webapp/imscenter/feeDetails/findFeeMaster.ftl"/></html>
+                                        </platform-specific>
+                                    </widgets>
+                                </section>
+                            </widgets>
+                            <fail-widgets>
+                                <label style="h3">${uiLabelMap.PartyMgrViewPermissionError}</label>
+                            </fail-widgets>
+                        </section>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+
+  <screen name="newFeeMaster">
+        <section>
+            <actions>
+                <set field="titleProperty" value="newCourseMaster"/>
+                <set field="headerItem" value="courseMaster"/>
+                <property-to-field field="defaultCountryGeoId" resource="general" property="country.geo.id.default" default="IND"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="imsCenterCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <screenlet title="New Fee Master">
+                            <section>
+                                <widgets>
+                                   <platform-specific>
+                                            <html><html-template location="component://imscenter/webapp/imscenter/feeDetails/AddFeeMaster.ftl"/></html>
+                                        </platform-specific>
+                                </widgets>
+                            </section>
+                        </screenlet>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+</screens>

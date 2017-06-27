@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+    <description>imsCenter Services</description>
+    <vendor></vendor>
+    <version>1.0</version>
+
+    <service name="noSyntaxError" engine="interface">
+        <description>
+            Dummy service to prevent empty files and syntax error - Remove when the 1st real service will be added here 
+        </description>
+    </service> 
+    
+    <service name="createStudent" engine="java" invoke="studentRegistration" location="com.org.Admission.ImsCenter">
+      <attribute name="instId" mode="IN" type="String" />
+      <attribute name="stName" mode="IN" type="String" />
+      <attribute name="stCourse" mode="IN" type="String" optional="true" />
+      <attribute name="stFatherName" mode="IN" type="String" />
+      <attribute name="stMotherName" mode="IN" type="String" />
+      <attribute name="sex" mode="IN" type="String" />
+      <attribute name="religion" mode="IN" type="String" />
+      <attribute name="caste" mode="IN" type="String" />
+      <attribute name="nationality" mode="IN" type="String" optional="true" />
+      <attribute name="qualifyingExam" mode="IN" type="String" optional="true" />
+      <attribute name="lastAttended" mode="IN" type="String" optional="true" />
+      <attribute name="enrollmentNo" mode="IN" type="String"  optional="true"/>
+      <attribute name="receiptNo" mode="IN" type="String" optional="true" />
+      <attribute name="address1" mode="IN" type="String" />
+      <attribute name="address2" mode="IN" type="String" />
+      <attribute name="state" mode="IN" type="String" optional="true" />
+      <attribute name="district" mode="IN" type="String" optional="true" />
+      <attribute name="city" mode="IN" type="String" />
+      <attribute name="pincode" mode="IN" type="String" />
+      <attribute name="mobileNo" mode="IN" type="String" />
+      <attribute name="email" mode="IN" type="String" />
+      <attribute name="salutation" mode="IN" type="String" optional="true" />
+    </service>
+    
+    
+     <service name="createCourseMaster" engine="java" invoke="createCourseMaster" location="com.org.Admission.ImsCenter">
+      <attribute name="courseName" mode="IN" type="String" />
+      <attribute name="courseDescription" mode="IN" type="String" />
+        <attribute name="courseLevel" mode="IN" type="String" />
+          <attribute name="courseYear" mode="IN" type="String" />
+            <attribute name="noOfSemester" mode="IN" type="Long" />
+              <attribute name="courseDuration" mode="IN" type="Long" />
+                <attribute name="noOfSeat" mode="IN" type="Long" />
+    </service>
+    
+    <service name="createSubjectMaster" engine="java" invoke="createSubjectMaster" location="com.org.Admission.ImsCenter">
+      <attribute name="subjectName" mode="IN" type="String" />
+      <attribute name="subjectType" mode="IN" type="String" />
+       <attribute name="subjectNature" mode="IN" type="String" />
+    </service>
+</services>
