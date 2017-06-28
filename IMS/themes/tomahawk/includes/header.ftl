@@ -130,6 +130,7 @@ under the License.
             </li>
           </#if>
         </ul>
+       
         <br class="clear" />
       </div>
     </#if>

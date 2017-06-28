@@ -736,6 +736,7 @@ width: auto;
 }
 
 DIV.contentarea {
+	margin-top:-1px;
 background-color:#E4E5E8;
 }
 
@@ -947,9 +948,14 @@ text-align: center;
 /* ==================================== */
 /* ===== Masthead (Header) Styles ===== */
 /* ==================================== */
-#logo-area {
-/* background: url(../images/ofbiz_logo.png) no-repeat; */
 
+#logo-area {
+/*  background: url(../images/ofbiz_logo.png) no-repeat;  */
+ background: url(../images/pathsalaLogo.png) no-repeat; 
+ height:45px;
+ width:25%;
+ border:0px solid red;
+ padding-top:15px;
 }
 
 #logo-area a{
@@ -983,13 +989,13 @@ height:50px;
 background-color:white;
 font-weight: bold;
 */
+padding-top:2px;
+padding-bottom:2px;
 font-weight: bold;
- height: 1%; 
- background:#303F51;
+ background:rgb(95,95,95); 
  /* background-image: url('/images/bg_img.jpg');
 background-repeat: repeat-x;
 background: #3761AB; */	
-min-height: 85px
 }
 
 #masthead ul li {
@@ -1017,7 +1023,7 @@ padding-right:10px;
 #masthead img {
 	padding-top:5px;
     height: 65px;
-    
+    background: url(../images/ofbiz_logo.png) no-repeat; 
     padding-left: 10px;
 }
 ul#preferences-menu {
@@ -1131,8 +1137,8 @@ font-weight:normal;
 /* =========================================== */
 #navigation {
 /* background: url(../images/header_top_bg_btm.gif) repeat-x; */
-background-color:#E6E6E6;
-border-bottom: 1px solid #D2D2D2;
+background-color:rgb(218,218,218);
+/* border-bottom: 1px solid #D2D2D2; */
 height: 30px;
 width: 100%;
 }
@@ -1140,7 +1146,7 @@ width: 100%;
 #main-navigation,#app-navigation {
 height:30px;
 float: left;
-font-size: 130%;
+font-size: 110%;
 }
 
 #control-area {
